@@ -16,7 +16,17 @@ class ProductApi {
 
   /* Получить продукты с сервера */
   getProducts() {
-    return fetch(`${this._url}`, {
+    return fetch(`${this._url}/product`, {
+      headers: {
+        ...this._headers,
+      }
+    })
+    .then(this._checkResponse);
+  }
+
+  /* Получить список категорий с свервера */
+  getCategories() {
+    return fetch(`${this._url}/brand`, {
       headers: {
         ...this._headers,
       }

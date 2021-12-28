@@ -14,12 +14,13 @@ function App() {
 
   // Список продуктов
   const [products, setProducts] = useState([]);  // Продукты с api
+  const [categories, setCategories] = useState([]); // Категории с api
 
 
   useEffect(() => {
-    // Получить список товаров
-    productsApi.getProducts()
-      .then((products) => {
+
+    Promise.all([productsApi.getProducts(), productsApi.getCategories()])
+      .then(([products, categories]) => {
         const sorted = [...products].sort((a, b) => {
           if (a.price > b.price) {
             return 1;
@@ -31,10 +32,12 @@ function App() {
           return 0;
         });
         setProducts(sorted);
+        setCategories(categories);
       })
       .catch((err) => {
         console.log(`Ошибка ${err}`)
       })
+
   }, []);
 
 
@@ -44,6 +47,7 @@ function App() {
         <Header />
         <Shop
           products={products}
+          categories={categories}
         />
       </div>
     </div>

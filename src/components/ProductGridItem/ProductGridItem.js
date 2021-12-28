@@ -8,7 +8,7 @@ import productBagSvg from '../../images/shopping-bag.svg';
 // Импорт стилей
 import './ProductGridItem.css';
 
-function Product({ image, rating, price, title, desc, id, brandId }) {
+function Product({ image, rating, price, title, desc, id, brandId, categoryId }) {
   return (
     <li key={id} className="product products__item">
       <div className="product__image-wrapper">
