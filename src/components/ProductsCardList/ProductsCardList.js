@@ -24,6 +24,7 @@ function ProductsCardList({ products, productsView }) {
               key={product.id}
               id={product.id}
               brandId={product.brandId}
+              categoryId={product.categoryId}
             />
           ))
         ) : (
