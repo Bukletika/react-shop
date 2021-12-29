@@ -174,7 +174,7 @@ function Shop({ products, categories }) {
             <h4>Бренды</h4>
             <div id="brands">
               {categories.map((category) => (
-                <div className="checkbox"><label><input onChange={(e) => filterProducts(e.target)} type="checkbox" name="brandId" value={category.id} /> {category.title}</label></div>
+                <div key={`${category.title}_${category.id}`} className="checkbox"><label><input onChange={(e) => filterProducts(e.target)} type="checkbox" name="brandId" value={category.id} /> {category.title}</label></div>
               ))}
             </div>
           </div>
